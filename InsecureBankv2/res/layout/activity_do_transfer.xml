@@ -1,0 +1,96 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <TextView
+        android:id="@+id/textView_Username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/editText_to"
+        android:layout_alignBottom="@+id/editText_to"
+        android:layout_alignLeft="@+id/textView2"
+        android:text="To Account" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView_Username"
+        android:layout_centerVertical="true"
+        android:text="Amount" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:layout_toLeftOf="@+id/editText_from"
+        android:text="From Account:" />
+
+    <EditText
+        android:id="@+id/editText_from"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView2"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignParentRight="true"
+        android:ems="10" />
+
+    <EditText
+        android:id="@+id/editText_to"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView2"
+        android:ems="10" />
+
+    <Button
+        android:id="@+id/button_CreateUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText_to"
+        android:layout_below="@+id/editText_to"
+        android:text="Get Accounts" />
+
+    <EditText
+        android:id="@+id/editText_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/textView2"
+        android:ems="10" />
+
+    <Button
+        android:id="@+id/button_Transfer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText_amount"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="24dp"
+        android:text="Transfer" />
+
+    <EditText
+        android:id="@+id/editText_Phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView_Phone"
+        android:layout_alignBottom="@+id/textView_Phone"
+        android:layout_toRightOf="@+id/textView2"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/textView_Phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button_Transfer"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="55dp"
+        android:text="Phone Number" />
+
+</RelativeLayout>
