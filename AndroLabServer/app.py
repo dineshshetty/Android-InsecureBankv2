@@ -1,13 +1,12 @@
 import getopt
 import sys
-from flask import Flask, request, render_template, request_started
+from flask import Flask, request, request_started
 from cherrypy import wsgiserver
 from functools import wraps
 from models import User, Account
 from database import db_session
 import simplejson as json
 makejson = json.dumps
-import datetime
 app = Flask(__name__)
 makejson = json.dumps
 
@@ -24,14 +23,15 @@ def internal_servererror(error):
     print " [!]", error
     return "Internal Server Error", 500
 
+'''
+The function handles the authentication mechanism
+'''
 @app.route('/login', methods=['POST'])
 def login():
     Responsemsg="fail"
-    # for below line to work, content type should be sent along with the request. request.form,request.json, request.data, request.values can be used.
-    # for json: {"uuid":"admin","password":"admin"}  #for data: username=dns
     user = request.form['username']
-    #print user
-    u = User.query.filter(User.username == request.form["username"]).first() #checks for presence of user in the database #requires models.py
+    #checks for presence of user in the database #requires models.py
+    u = User.query.filter(User.username == request.form["username"]).first()
     print "u=",u
     if u and u.password == request.form["password"]:
 	Responsemsg="Correct Credentials"
@@ -44,14 +44,17 @@ def login():
     print makejson(data)
     return makejson(data)
 
+'''
+The function responds back with the from and to debit accounts corresponding to logged in user
+'''
 @app.route('/getaccounts', methods=['POST'])
 def getaccounts():
     #set accounts from the request 
     Responsemsg="fail"
     acc1=acc2=from_acc=to_acc=0
     user=request.form['username']
-    print user
-    u = User.query.filter(User.username == user).first() #checks for presence of user in the database
+    #checks for presence of user in the database
+    u = User.query.filter(User.username == user).first()
     if not u or u.password != request.form["password"]:
         Responsemsg="Wrong Credentials so trx fail"
     else:
@@ -67,6 +70,9 @@ def getaccounts():
     print makejson(data)
     return makejson(data)
 
+'''
+The function takes a new password as input and passes it on to the change password module
+'''
 @app.route('/changepassword', methods=['POST'])
 def changepassword():
     #set accounts from the request 
@@ -85,6 +91,9 @@ def changepassword():
     print makejson(data)
     return makejson(data)
     
+'''
+The function handles the transaction module
+'''
 @app.route('/dotransfer', methods=['POST'])
 def dotransfer():
     #set accounts from the request 
@@ -113,6 +122,9 @@ def dotransfer():
     #print makejson(data)
     return makejson(data)
 
+'''
+The function provides login mechanism to a developer user during development phase
+'''
 @app.route('/devlogin', methods=['POST'])
 def devlogin():
     user=request.form['username']
