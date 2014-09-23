@@ -17,6 +17,9 @@ Install the below libraries using: easy_install <libraryname>
 
 Running the python server
 -----
+Change the current directory to the AndroLabServer folder
+
+	cd AndroLabServer
 
 Use the below syntax to run the HTTP server
 
