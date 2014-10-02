@@ -37,7 +37,8 @@
         </activity>
         <activity
             android:name=".PostLogin"
-            android:label="@string/title_activity_post_login" >
+            android:label="@string/title_activity_post_login"
+            android:exported="true" >
         </activity>
         <activity
             android:name=".WrongLogin"
@@ -45,11 +46,13 @@
         </activity>
         <activity
             android:name=".DoTransfer"
-            android:label="@string/title_activity_do_transfer" >
+            android:label="@string/title_activity_do_transfer"
+            android:exported="true" >
         </activity>
         <activity
             android:name=".ViewStatement"
-            android:label="@string/title_activity_view_statement" >
+            android:label="@string/title_activity_view_statement"
+            android:exported="true" >
         </activity>
 
         <provider
@@ -69,7 +72,8 @@
 
         <activity
             android:name=".ChangePassword"
-            android:label="@string/title_activity_change_password" >
+            android:label="@string/title_activity_change_password"
+            android:exported="true" >
         </activity>
         <activity
             android:name=".ExitActivity"

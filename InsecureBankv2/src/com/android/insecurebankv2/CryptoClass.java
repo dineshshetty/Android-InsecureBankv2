@@ -75,6 +75,7 @@ public class CryptoClass {
 		Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
 		cipher.init(Cipher.DECRYPT_MODE, newKey, ivSpec);
 		return cipher.doFinal(textBytes);
+		
 	}
 
 	/*
