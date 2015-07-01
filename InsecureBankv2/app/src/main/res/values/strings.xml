@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">InsecureBankv2</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="loginscreen_username">Username:</string>
+    <string name="action_settings">Preferences</string>
+    <string name="action_exit">Restart</string>
+    <string name="loginscreen_password">Password:</string>
+    <string name="title_activity_file_pref">FilePref</string>
+    <string name="server_ip">Server IP:</string>
+    <string name="server_port">Server Port:</string>
+    <string name="pref_submit">Submit:</string>
+    <string name="title_activity_setting_preferences">SettingPreferences</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_log_main">LogMainActivity</string>
+    <string name="title_activity_do_login">DoLogin</string>
+    <string name="title_activity_login_action">LoginAction</string>
+    <string name="title_activity_post_login">PostLogin</string>
+    <string name="title_activity_wrong_login">WrongLogin</string>
+    <string name="title_activity_do_transfer">DoTransfer</string>
+    <string name="title_activity_view_statement">ViewStatement</string>
+    <string name="is_admin">no</string>
+    <string name="title_activity_change_password">ChangePassword</string>
+    <string name="title_activity_exit">ExitActivity</string>
+    <string name="action_kill">Exit Application</string>
+
+</resources>

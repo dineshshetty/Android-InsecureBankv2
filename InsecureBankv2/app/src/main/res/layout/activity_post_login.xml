@@ -1,0 +1,57 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <TableRow   android:paddingTop="50px" android:gravity="center"
+        android:layout_width="match_parent"
+        android:paddingLeft="5dp" android:paddingRight="5dp">
+
+        <Button
+            android:id="@+id/trf_button"
+            android:text="Transfer"
+            android:layout_weight="1"
+            android:padding="20dp"
+            android:textColor="@color/wallet_bright_foreground_holo_dark"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:background="@drawable/roundbutton" />
+
+    </TableRow>
+
+
+    <TableRow   android:paddingTop="20px" android:gravity="center"
+        android:layout_width="match_parent"
+        android:paddingLeft="5dp" android:paddingRight="5dp">
+
+        <Button
+            android:id="@+id/viewStatement_button"
+            android:text="View Statement"
+            android:layout_weight="1"
+            android:padding="20dp"
+            android:textColor="@color/wallet_bright_foreground_holo_dark"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:background="@drawable/roundbutton" />
+
+    </TableRow>
+
+    <TableRow   android:paddingTop="20px" android:gravity="center"
+        android:layout_width="match_parent"
+        android:paddingLeft="5dp" android:paddingRight="5dp">
+
+        <Button
+            android:id="@+id/button_ChangePasswd"
+            android:text="Change Password"
+            android:layout_weight="1"
+            android:padding="20dp"
+            android:textColor="@color/wallet_bright_foreground_holo_dark"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:background="@drawable/roundbutton" />
+
+    </TableRow>
+
+
+</TableLayout>
