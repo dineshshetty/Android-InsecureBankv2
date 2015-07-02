@@ -27,7 +27,6 @@ public class TrackUserContentProvider extends ContentProvider {
 	//   The Content provider that handles all the tracked user history
 	static final String URL = "content://" + PROVIDER_NAME + "/trackerusers";
 	static final Uri CONTENT_URI = Uri.parse(URL);
-	static final String id = "id";
 	static final String name = "name";
 	static final int uriCode = 1;
 	static final UriMatcher uriMatcher;

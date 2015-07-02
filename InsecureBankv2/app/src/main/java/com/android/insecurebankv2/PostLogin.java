@@ -65,7 +65,7 @@ public class PostLogin extends Activity {
 	}
 
 	/*
-	The page that allows the user to view transaction history for the logged in user
+	The page that allows the user to allow password change for the logged in user
 	*/
 	protected void changePasswd() {
 		// TODO Auto-generated method stub
@@ -83,7 +83,7 @@ public class PostLogin extends Activity {
 		vS.putExtra("uname", uname);
 		startActivity(vS);
 	}
-	// Added for menu
+	// Added for handling menu operations
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -92,7 +92,7 @@ public class PostLogin extends Activity {
 		return true;
 	}
 
-	// Added for menu
+	// Added for handling menu operations
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle action bar item clicks here. The action bar wil
@@ -106,10 +106,6 @@ public class PostLogin extends Activity {
 			Intent i = new Intent(getBaseContext(), LoginActivity.class);
 			i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(i);
-			return true;
-		}else if (id == R.id.action_kill) {
-			System.out.println("Killed");
-			System.exit(0);
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

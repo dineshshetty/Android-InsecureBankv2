@@ -56,25 +56,21 @@ public class DoLogin extends Activity {
 	//	Stores the password passed by the calling intent
 	String password;
 	String result;
-	String superSecurePassword, superSecureUsername;
+	String superSecurePassword;
 	String rememberme_username, rememberme_password;
 	public static final String MYPREFS = "mySharedPreferences";
-	String login_response_message, login_response_user;
-	String base64Text;
 	String serverip = "";
 	String serverport = "";
 	String protocol = "http://";
-	JSONArray contacts = null;
-	StringBuilder contents = new StringBuilder();
-	static JSONObject jObj = null;
 	BufferedReader reader;
-	CheckBox remember;
+	SharedPreferences serverDetails;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_do_login);
 
-		SharedPreferences serverDetails;
+        // Get Server details from Shared Preference file.
 		serverDetails = PreferenceManager.getDefaultSharedPreferences(this);
 		serverip = serverDetails.getString("serverip", null);
 		serverport = serverDetails.getString("serverport", null);
@@ -217,7 +213,7 @@ public class DoLogin extends Activity {
 			return sb.toString();
 		}
 	}
-	// Added for menu
+    // Added for handling menu operations
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -226,7 +222,7 @@ public class DoLogin extends Activity {
 		return true;
 	}
 
-	// Added for menu
+    // Added for handling menu operations
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		int id = item.getItemId();
@@ -237,10 +233,6 @@ public class DoLogin extends Activity {
 			Intent i = new Intent(getBaseContext(), LoginActivity.class);
 			i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(i);
-			return true;
-		}else if (id == R.id.action_kill) {
-			System.out.println("Killed");
-			System.exit(0);
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

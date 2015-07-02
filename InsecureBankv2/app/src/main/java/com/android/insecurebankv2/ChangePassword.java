@@ -65,21 +65,26 @@ public class ChangePassword extends Activity {
 	String serverip = "";
 	String serverport = "";
 	String protocol = "http://";
+	SharedPreferences serverDetails;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_change_password);
-		SharedPreferences serverDetails;
+
+        // Get Server details from Shared Preference file.
 		serverDetails = PreferenceManager.getDefaultSharedPreferences(this);
 		serverip = serverDetails.getString("serverip", null);
 		serverport = serverDetails.getString("serverport", null);
+
 		changePassword_text = (EditText) findViewById(R.id.editText_newPassword);
 		Intent intent = getIntent();
 		uname = intent.getStringExtra("uname");
 		System.out.println("newpassword=" + uname);
 		textView_Username = (TextView) findViewById(R.id.textView_Username);
 		textView_Username.setText(uname);
+
+        // Manage the change password button click
 		changePassword_button = (Button) findViewById(R.id.button_newPasswordSubmit);
 		changePassword_button.setOnClickListener(new View.OnClickListener() {
 
@@ -132,7 +137,8 @@ public class ChangePassword extends Activity {
 			httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 			pattern = Pattern.compile(PASSWORD_PATTERN);
 			matcher = pattern.matcher(changePassword_text.getText().toString());
-			//   check if the password is complex enough
+
+			// Check if the password is complex enough
 			boolean isStrong= matcher.matches();
 			if (isStrong){
 				responseBody = httpclient.execute(httppost);
@@ -169,8 +175,6 @@ public class ChangePassword extends Activity {
 				}
 				});
 			}
-			
-			//	This variables holds the response of the HTTP request 
 		}
 
 
@@ -191,7 +195,7 @@ public class ChangePassword extends Activity {
 		}
 
 	}
-	// Added for menu
+	// Added for handling menu operations
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -200,7 +204,7 @@ public class ChangePassword extends Activity {
 		return true;
 	}
 
-	// Added for menu
+	// Added for handling menu operations
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle action bar item clicks here. The action bar wil
@@ -214,10 +218,6 @@ public class ChangePassword extends Activity {
 			Intent i = new Intent(getBaseContext(), LoginActivity.class);
 			i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(i);
-			return true;
-		}else if (id == R.id.action_kill) {
-			System.out.println("Killed");
-			System.exit(0);
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

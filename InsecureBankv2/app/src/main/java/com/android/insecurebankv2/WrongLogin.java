@@ -23,7 +23,7 @@ public class WrongLogin extends Activity {
         startActivity(backtoLogin);
         finish();
 	}
-	// Added for menu
+	// Added for handling menu operations
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -32,7 +32,7 @@ public class WrongLogin extends Activity {
 		return true;
 	}
 
-	// Added for menu
+	// Added for handling menu operations
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle action bar item clicks here. The action bar wil
@@ -46,10 +46,6 @@ public class WrongLogin extends Activity {
 			Intent i = new Intent(getBaseContext(), LoginActivity.class);
 			i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(i);
-			return true;
-		}else if (id == R.id.action_kill) {
-			System.out.println("Killed");
-			System.exit(0);
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

@@ -51,46 +51,45 @@ The page that allows the user to transfer an amount between two accounts
 */
 public class DoTransfer extends Activity {
 
-	String result, result2, trf_username = null, trf_password = null;
+	String result;
 	String passNormalized;
 	String usernameBase64ByteString;
 	BufferedReader reader;
 	//	The EditText that holds the from account number
-	EditText from, trf_from;
+	EditText from;
 	//	The EditText that holds the to account number
-	EditText to, trf_to;
+	EditText to;
 	//	The EditText that holds the to amount to be transferred between the accounts
 	EditText amount;
 	/*The EditText that takes the Phone number as input from the user. A confirmation of 
 	successful transfer is sent to this phone number*/
 	EditText phoneNumber;
 	String number = "5554";
-	TextView fr;
 	//	The Button that handles the from and to account autofill operation on the basis of logged in user
 	Button getAccounts;
 	//	The Button that handles the transfer operation activity
 	Button transfer;
 	String acc1, acc2;
 	HttpResponse responseBody;
-	String passBase64String;
 	JSONObject jsonObject;
 	InputStream in ;
 	String serverip = "";
 	String serverport = "";
 	String protocol = "http://";
 	Button button1;
-	TextView tv1;
-	EditText ed1;
-	BufferedWriter wr = null;
+	SharedPreferences serverDetails;
 	public static final String MYPREFS2 = "mySharedPreferences";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_do_transfer);
-		SharedPreferences serverDetails;
-		serverDetails = PreferenceManager.getDefaultSharedPreferences(this);
+
+        // Get Server details from Shared Preference file.
+        serverDetails = PreferenceManager.getDefaultSharedPreferences(this);
 		serverip = serverDetails.getString("serverip", null);
 		serverport = serverDetails.getString("serverport", null);
+
+        // Handle the transfer functionality
 		transfer = (Button) findViewById(R.id.button_Transfer);
 		transfer.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -123,7 +122,7 @@ public class DoTransfer extends Activity {
 		}
 
 		/**
-		 * background
+		 * background functions
 		 */
 		@Override
 		protected String doInBackground(String...params) {
@@ -193,11 +192,9 @@ public class DoTransfer extends Activity {
 					if (result != null) {
 						if (result.indexOf("Success") != -1) {
                             Toast.makeText(getApplicationContext(), "Transfer Successful", Toast.LENGTH_LONG).show();
-							//	Function that sends a confirmation SMS if transaction was successful
 
-
-
-							broadcastSMS();
+							//	Function that handles confirmation SMS if transaction was successful
+                            broadcastSMS();
 
 							try {
 								jsonObject = new JSONObject(result);
@@ -244,15 +241,12 @@ public class DoTransfer extends Activity {
 				private void broadcastSMS() {
 					phoneNumber = (EditText) findViewById(R.id.editText_Phone);
 					number = phoneNumber.getText().toString().trim();
-
-
                     if(TextUtils.isEmpty(number)) {
 
                         System.out.println("Phone number Invalid.");
                     }
                     else
                     {
-
                         Intent smsIntent = new Intent();
                         smsIntent.setAction("theBroadcast");
                         smsIntent.putExtra("phonenumber", number);
@@ -280,7 +274,7 @@ public class DoTransfer extends Activity {
 		}
 
 		/**
-		 * background
+		 * background operations
 		 */
 		@Override
 		public String doInBackground(String...params) {
@@ -403,7 +397,7 @@ public class DoTransfer extends Activity {
 		} in .close();
 		return sb.toString();
 	}
-	// Added for menu
+    // Added for handling menu operations
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -412,7 +406,7 @@ public class DoTransfer extends Activity {
 		return true;
 	}
 
-	// Added for menu
+    // Added for handling menu operations
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar wil
@@ -426,10 +420,6 @@ public class DoTransfer extends Activity {
             Intent i = new Intent(getBaseContext(), LoginActivity.class);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(i);
-            return true;
-        }else if (id == R.id.action_kill) {
-            System.out.println("Killed");
-            System.exit(0);
             return true;
         }
         return super.onOptionsItemSelected(item);

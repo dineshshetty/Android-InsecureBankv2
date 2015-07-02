@@ -50,7 +50,7 @@ public class ViewStatement extends Activity {
 
 
 	}
-	// Added for menu
+	// Added for handling menu operations
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -59,7 +59,7 @@ public class ViewStatement extends Activity {
 		return true;
 	}
 
-	// Added for menu
+	// Added for handling menu operations
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		int id = item.getItemId();

@@ -39,8 +39,6 @@ public class LoginActivity extends Activity {
 	//	The Button that allows the user to autofill the credentials, 
 	//  if the user has logged in successfully earlier
 	Button fillData_button;
-	String username_text;
-	String password_text;
 	String usernameBase64ByteString;
 	public static final String MYPREFS = "mySharedPreferences";
 
@@ -133,14 +131,14 @@ public class LoginActivity extends Activity {
 		startActivity(i);
 	}
 
-	// Added for menu
+	// Added for handling menu operations
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
 
-	// Added for menu
+	// Added for handling menu operations
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle action bar item clicks here. The action bar wil
@@ -154,10 +152,6 @@ public class LoginActivity extends Activity {
 			Intent i = new Intent(getBaseContext(), LoginActivity.class);
 			i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(i);
-			return true;
-		}else if (id == R.id.action_kill) {
-			System.out.println("Killed");
-			System.exit(0);
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

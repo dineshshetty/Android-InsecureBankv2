@@ -13,9 +13,4 @@
         android:title="@string/action_exit"
         app:showAsAction="always" />
 
-    <item
-        android:id="@+id/action_kill"
-        android:title="@string/action_kill"
-        app:showAsAction="always" />
-
 </menu>

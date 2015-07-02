@@ -3,7 +3,6 @@
     android:layout_height="fill_parent">
 
     <TableRow android:layout_marginTop="30dip" android:layout_marginRight="5dip" >
-
         <TextView android:id="@+id/textview_serverip"
             android:padding="10dp"
             android:text="@string/server_ip"
@@ -12,9 +11,6 @@
             android:textColor="#000000"
             android:layout_height="wrap_content"
             android:layout_marginLeft="00dip"></TextView>
-
-
-
         <EditText android:id="@+id/edittext_serverip"
             android:padding="10dp"
             android:text="10.0.2.2"
@@ -27,11 +23,9 @@
             android:layout_weight="1"
             android:textStyle="bold"
             android:layout_marginRight="5dip"></EditText>
-
     </TableRow>
 
     <TableRow android:layout_marginTop="30dip" android:layout_marginRight="5dip">
-
         <TextView android:id="@+id/textview_serverport"
             android:padding="10dp"
             android:text="@string/server_port"
@@ -39,11 +33,7 @@
             android:textSize="30sp"
             android:textColor="#000000"
             android:layout_height="wrap_content"
-
             android:layout_marginLeft="00dip"></TextView>
-
-
-
         <EditText android:id="@+id/edittext_serverport"
             android:padding="10dp"
             android:text="8888"
@@ -56,13 +46,11 @@
             android:layout_marginLeft="00dip"
             android:layout_marginRight="5dip"
             android:textStyle="bold"></EditText>
-
     </TableRow>
 
     <TableRow   android:paddingTop="50px" android:gravity="center"
         android:layout_width="match_parent"
         android:paddingLeft="5dp" android:paddingRight="5dp">
-
         <Button
             android:id="@+id/submitPref_button"
             android:text="Submit"
@@ -72,7 +60,6 @@
             android:textSize="30sp"
             android:textStyle="bold"
             android:background="@drawable/roundbutton"/>
+        </TableRow>
 
-    </TableRow>
-
-    </TableLayout>
+</TableLayout>

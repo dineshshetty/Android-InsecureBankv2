@@ -35,6 +35,8 @@ public class FilePrefActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_file_pref);
+
+		// Get Server details from Shared Preference file.
 		submitPref_buttonz = (Button) findViewById(R.id.submitPref_button);
 		edit_serverip = (EditText) findViewById(R.id.edittext_serverip);
 		edit_serverport = (EditText) findViewById(R.id.edittext_serverport);
@@ -48,7 +50,7 @@ public class FilePrefActivity extends Activity {
 			}
 		});
 	}
-	// Added for menu
+    // Added for handling menu operations
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -57,7 +59,7 @@ public class FilePrefActivity extends Activity {
 		return true;
 	}
 
-	// Added for menu
+    // Added for handling menu operations
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle action bar item clicks here. The action bar wil
@@ -71,10 +73,6 @@ public class FilePrefActivity extends Activity {
 			Intent i = new Intent(getBaseContext(), LoginActivity.class);
 			i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(i);
-			return true;
-		}else if (id == R.id.action_kill) {
-			System.out.println("Killed");
-			System.exit(0);
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
@@ -94,7 +92,6 @@ public class FilePrefActivity extends Activity {
 		// TODO Auto-generated method stub
        String serverportSaved= edit_serverport.getText().toString();
         String serveripSaved= edit_serverip.getText().toString();
-        //anncdd
 
         String IP_PATTERN ="^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
                         "([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
