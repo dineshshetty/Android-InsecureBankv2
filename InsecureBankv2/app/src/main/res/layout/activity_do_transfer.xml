@@ -85,20 +85,18 @@
             android:background="@drawable/roundbutton" />
     </TableRow>
 
-    <TableRow android:layout_marginTop="40dip" >
-        <TextView android:id="@+id/textView_Phone"
-            android:text="Phone Number:"
-            android:layout_width="wrap_content"
-            android:textSize="20sp"
-            android:textColor="#000000"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dip"></TextView>
+    <TableRow android:layout_marginTop="20dip" >
         <EditText
-            android:id="@+id/editText_Phone"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="00dip"
+            android:id="@+id/editText_Phone"
+            android:padding="20dp"
+            android:layout_marginLeft="20dip"
             android:layout_marginRight="20dip"
+            android:hint="  Phone Number"
+            android:textColorHint="#cccccc"
+            android:background="@android:drawable/editbox_background"
+            android:drawableLeft="@android:drawable/sym_action_call"
             android:layout_weight="1" >
         </EditText>
     </TableRow>
