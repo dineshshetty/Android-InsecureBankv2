@@ -1,44 +1,74 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent" android:stretchColumns="1">
 
     <TableRow android:layout_marginTop="20dip" >
+        <FrameLayout
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1">
+
         <TextView android:id="@+id/textView_FromAccount"
-            android:text="From Account:"
             android:layout_width="wrap_content"
+            android:text="From Account:"
             android:textSize="20sp"
             android:textColor="#000000"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dip"></TextView>
-        <EditText
+        </FrameLayout>
+        <FrameLayout
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1">
+        <EditText android:layout_width="fill_parent"
             android:id="@+id/editText_from"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="00dip"
             android:layout_marginRight="20dip"
-            android:layout_weight="1" >
+            android:layout_weight="1">
         </EditText>
+        </FrameLayout>
     </TableRow>
 
     <TableRow android:layout_marginTop="20dip" >
+        <FrameLayout
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1">
+
         <TextView android:id="@+id/textView_ToAccount"
-            android:text="To Account:"
             android:layout_width="wrap_content"
+            android:text="To Account:"
+            android:layout_marginRight="20dip"
             android:textSize="20sp"
             android:textColor="#000000"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dip"></TextView>
-        <EditText
+        </FrameLayout>
+        <FrameLayout
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1">
+        <EditText android:layout_width="fill_parent"
             android:id="@+id/editText_to"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="00dip"
             android:layout_marginRight="20dip"
             android:layout_weight="1" >
         </EditText>
+        </FrameLayout>
     </TableRow>
 
-    <TableRow   android:paddingTop="50px" android:gravity="center"
+
+    <TableRow   android:paddingTop="10px" android:gravity="center"
         android:layout_width="match_parent"
         android:paddingLeft="5dp" android:paddingRight="5dp">
         <Button
@@ -54,6 +84,11 @@
     </TableRow>
 
     <TableRow android:layout_marginTop="20dip" >
+        <FrameLayout
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1">
+
         <TextView android:id="@+id/textView_Amount"
             android:text="Amount:"
             android:layout_width="wrap_content"
@@ -61,17 +96,23 @@
             android:textColor="#000000"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dip"></TextView>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1">
         <EditText
             android:id="@+id/editText_amount"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="00dip"
             android:layout_marginRight="20dip"
             android:layout_weight="1" >
         </EditText>
+        </FrameLayout>
     </TableRow>
 
-    <TableRow   android:paddingTop="50px" android:gravity="center"
+    <TableRow android:paddingTop="10px" android:gravity="center"
         android:layout_width="match_parent"
         android:paddingLeft="5dp" android:paddingRight="5dp">
          <Button
@@ -102,3 +143,6 @@
     </TableRow>
 
 </TableLayout>
+    </LinearLayout>
+
+</ScrollView>
