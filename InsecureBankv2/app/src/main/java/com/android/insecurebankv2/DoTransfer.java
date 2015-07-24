@@ -191,8 +191,6 @@ public class DoTransfer extends Activity {
 						if (result.indexOf("Success") != -1) {
                             Toast.makeText(getApplicationContext(), "Transfer Successful", Toast.LENGTH_LONG).show();
 
-							//	Function that handles confirmation SMS if transaction was successful
-                            broadcastSMS();
 
 							try {
 								jsonObject = new JSONObject(result);
@@ -232,26 +230,6 @@ public class DoTransfer extends Activity {
 					}
 				}
 
-				/*
-				The function that handles the SMS activity
-				phoneNumber: Phone number to which the confirmation SMS is to be sent
-				*/
-				private void broadcastSMS() {
-					phoneNumber = (EditText) findViewById(R.id.editText_Phone);
-					number = phoneNumber.getText().toString().trim();
-                    if(TextUtils.isEmpty(number)) {
-
-                        System.out.println("Phone number Invalid.");
-                    }
-                    else
-                    {
-                        Intent smsIntent = new Intent();
-                        smsIntent.setAction("theBroadcast");
-                        smsIntent.putExtra("phonenumber", number);
-                        sendBroadcast(smsIntent);
-                    }
-
-				}
 			});
 			return str;
 		}

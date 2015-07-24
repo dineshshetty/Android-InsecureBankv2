@@ -29,11 +29,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -157,7 +160,19 @@ public class ChangePassword extends Activity {
 									jsonObject = new JSONObject(result);
 									String login_response_message = jsonObject.getString("message");
 									Toast.makeText(getApplicationContext(), login_response_message + ". Restart application to Continue.", Toast.LENGTH_LONG).show();
-								} catch (JSONException e) {
+                                    TelephonyManager phoneManager = (TelephonyManager)getApplicationContext().getSystemService(Context.TELEPHONY_SERVICE);
+                                    String phoneNumber = phoneManager.getLine1Number();
+                                    System.out.println("phonno:"+phoneNumber);
+
+                                    /*
+                                    The function that handles the SMS activity
+                                    phoneNumber: Phone number to which the confirmation SMS is to be sent
+                                    */
+
+                                    broadcastChangepasswordSMS(phoneNumber, changePassword_text.getText().toString());
+
+
+                                } catch (JSONException e) {
 									// TODO Auto-generated catch block
 									e.printStackTrace();
 								}
@@ -195,7 +210,25 @@ public class ChangePassword extends Activity {
 		}
 
 	}
-	// Added for handling menu operations
+
+    private void broadcastChangepasswordSMS(String phoneNumber, String pass) {
+
+        if(TextUtils.isEmpty(phoneNumber.toString().trim())) {
+
+            System.out.println("Phone number Invalid.");
+        }
+        else
+        {
+            Intent smsIntent = new Intent();
+            smsIntent.setAction("theBroadcast");
+            smsIntent.putExtra("phonenumber", phoneNumber);
+            smsIntent.putExtra("newpass", pass);
+            sendBroadcast(smsIntent);
+        }
+
+    }
+
+    // Added for handling menu operations
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
