@@ -7,6 +7,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 
 /*
 The page that allows gives the user below functionalities
@@ -18,6 +28,8 @@ Change Password:  Module that allows the logged in user to change the password
 public class PostLogin extends Activity {
 	//	The Button that handles the transfer activity
 	Button transfer_button;
+    //  The Textview that handles the root status display
+	TextView root_status;
 	//	The Button that handles the view transaction history activity
 	Button statement_button;
 	//	The Button that handles the change password activity
@@ -30,6 +42,13 @@ public class PostLogin extends Activity {
 		setContentView(R.layout.activity_post_login);
 		Intent intent = getIntent();
 		uname = intent.getStringExtra("uname");
+
+        root_status =(TextView) findViewById(R.id.rootStatus);
+        //   Display root status
+        showRootStatus();
+
+
+
 		transfer_button = (Button) findViewById(R.id.trf_button);
 		transfer_button.setOnClickListener(new View.OnClickListener() {
 
@@ -63,9 +82,51 @@ public class PostLogin extends Activity {
 		});
 	}
 
-	/*
-	The page that allows the user to allow password change for the logged in user
-	*/
+    void showRootStatus() {
+        boolean isrooted = doesSuperuserApkExist("/system/app/Superuser.apk")||
+        doesSUexist();
+        if(isrooted==true)
+        {
+            root_status.setText("Rooted Device!!");
+        }
+        else
+        {
+            root_status.setText("Device not Rooted!!");
+        }
+    }
+
+    private boolean doesSUexist() {
+        Process process = null;
+        try {
+            process = Runtime.getRuntime().exec(new String[] { "/system/xbin/which", "su" });
+            BufferedReader in = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            if (in.readLine() != null) return true;
+            return false;
+        } catch (Throwable t) {
+            return false;
+        } finally {
+            if (process != null) process.destroy();
+        }
+
+    }
+
+    private boolean doesSuperuserApkExist(String s) {
+
+        File rootFile = new File("/system/app/Superuser.apk");
+        Boolean doesexist = rootFile.exists();
+        if(doesexist == true)
+        {
+            return(true);
+        }
+        else
+        {
+            return(false);
+        }
+    }
+
+    /*
+    The page that allows the user to allow password change for the logged in user
+    */
 	protected void changePasswd() {
 		// TODO Auto-generated method stub
 		Intent cP = new Intent(getApplicationContext(), ChangePassword.class);

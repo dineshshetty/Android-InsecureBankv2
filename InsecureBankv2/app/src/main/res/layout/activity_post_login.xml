@@ -46,4 +46,19 @@
             android:background="@drawable/roundbutton" />
     </TableRow>
 
+    <TableRow android:paddingTop="20px" android:gravity="center"
+        android:layout_width="match_parent"
+        android:paddingLeft="5dp" android:paddingRight="5dp">
+
+        <TextView
+            android:id="@+id/rootStatus"
+            android:text="Root Status"
+            android:layout_weight="1"
+            android:padding="20dp"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="#ff000fff"/>
+    </TableRow>
+
 </TableLayout>
