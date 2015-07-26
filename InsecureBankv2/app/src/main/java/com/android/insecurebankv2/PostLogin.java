@@ -84,7 +84,7 @@ public class PostLogin extends Activity {
 
     void showRootStatus() {
         boolean isrooted = doesSuperuserApkExist("/system/app/Superuser.apk")||
-        doesSUexist();
+                doesSUexist();
         if(isrooted==true)
         {
             root_status.setText("Rooted Device!!");
@@ -94,7 +94,6 @@ public class PostLogin extends Activity {
             root_status.setText("Device not Rooted!!");
         }
     }
-
 
     private boolean doesSUexist() {
         Process process = null;
