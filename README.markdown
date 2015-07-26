@@ -8,6 +8,7 @@ This is a major update to one of my previous projects - "InsecureBank". This vul
 * Weak Authorization mechanism
 * Local Encryption issues
 * Vulnerable Activity Components
+* Root Detection and Bypass
 * Insecure Content Provider access
 * Insecure Webview implementation
 * Weak Cryptography implementation
@@ -18,6 +19,7 @@ This is a major update to one of my previous projects - "InsecureBank". This vul
 * Application Debuggable
 * Android keyboard cache issues
 * Android Backup vulnerability
+* Runtime Manipulation
 * Insecure SDCard storage
 * Insecure HTTP connections
 * Parameter Manipulation
@@ -28,8 +30,6 @@ This is a major update to one of my previous projects - "InsecureBank". This vul
 
 Below are some of the other vulnerabilities that I am working on currently - and will be added as soon as I make sure that it does not break any of the other existing features:
 * Local SQL Injection
-* Runtime Manipulation
-* Root Detection and Bypass
 * SMS based Denial-Of-Service
 * LockScreen Bypass
 
