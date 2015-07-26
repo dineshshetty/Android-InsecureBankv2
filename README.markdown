@@ -32,3 +32,4 @@ Below are some of the other vulnerabilities that I am working on currently - and
 * Root Detection and Bypass
 * SMS based Denial-Of-Service
 * LockScreen Bypass
+
