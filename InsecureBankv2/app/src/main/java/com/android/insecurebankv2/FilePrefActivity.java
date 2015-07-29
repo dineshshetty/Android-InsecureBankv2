@@ -111,11 +111,8 @@ public class FilePrefActivity extends Activity {
                 editor.putString("serverip", serveripSaved);
                 editor.putString("serverport", serverportSaved);
                 editor.commit();
-                Intent backtoLogin = new Intent(this, LoginActivity.class);
-                startActivity(backtoLogin);
                 Toast.makeText(this, "Server Configured Successfully!!", Toast.LENGTH_LONG).show();
                 finish();
-
             }
             else
             {
