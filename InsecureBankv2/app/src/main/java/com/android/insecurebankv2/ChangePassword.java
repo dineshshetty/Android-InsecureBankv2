@@ -221,6 +221,8 @@ public class ChangePassword extends Activity {
         {
             Intent smsIntent = new Intent();
             smsIntent.setAction("theBroadcast");
+         //   String actdns= smsIntent.getAction().toString();
+          //  Toast.makeText(getApplicationContext(),actdns , Toast.LENGTH_LONG).show();
             smsIntent.putExtra("phonenumber", phoneNumber);
             smsIntent.putExtra("newpass", pass);
             sendBroadcast(smsIntent);

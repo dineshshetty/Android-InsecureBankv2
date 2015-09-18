@@ -32,7 +32,9 @@ pages on a successful authentication
 public class LoginActivity extends Activity {
 	//	The Button that calls the authentication function
 	Button login_buttons;
-	//	The EditText that holds the username entered by the user
+    //	The Button that calls the create user function
+    Button createuser_buttons;
+    //	The EditText that holds the username entered by the user
 	EditText Username_Text;
 	//	The EditText that holds the password entered by the user
 	EditText Password_Text;
@@ -60,6 +62,15 @@ public class LoginActivity extends Activity {
                 performlogin();
             }
         });
+        createuser_buttons = (Button) findViewById(R.id.button_CreateUser);
+        createuser_buttons.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                createUser();
+            }
+        });
 		fillData_button = (Button) findViewById(R.id.fill_data);
 		fillData_button.setOnClickListener(new View.OnClickListener() {
 
@@ -77,11 +88,22 @@ public class LoginActivity extends Activity {
 
 	}
 
-	/*
-	The function that allows the user to autofill the credentials
-	if the user has logged in successfully atleast one earlier using
-	that device
-	*/
+    /*
+    The function that allows the user to create new user credentials.
+    This functionality is available only to the admin user.
+    <<WIP Code>>
+    ToDo: Add functionality here.
+    */
+    protected void createUser() {
+        Toast.makeText(this, "Create User functionality is still Work-In-Progress!!", Toast.LENGTH_LONG).show();
+
+    }
+
+    /*
+    The function that allows the user to autofill the credentials
+    if the user has logged in successfully atleast one earlier using
+    that device
+    */
 	protected void fillData() throws UnsupportedEncodingException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
 		// TODO Auto-generated method stub
 		SharedPreferences settings = getSharedPreferences(MYPREFS, 0);
