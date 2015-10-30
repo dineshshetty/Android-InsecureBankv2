@@ -20,7 +20,7 @@
                 android:layout_height="wrap_content"
                 android:text="BroadCast Receiver Content"
                 android:id="@+id/textView"
-                android:layout_column="9" />
+                android:layout_column="0" />
         </TableRow>
     </TableLayout>
 

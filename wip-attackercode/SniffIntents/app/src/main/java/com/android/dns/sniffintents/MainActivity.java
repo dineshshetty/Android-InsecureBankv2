@@ -1,14 +1,23 @@
 package com.android.dns.sniffintents;
 
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 
 public class MainActivity extends ActionBarActivity {
+    Button bypassLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,15 +26,17 @@ public class MainActivity extends ActionBarActivity {
         IntentFilter filter = new IntentFilter("theBroadcast");
         MyReceiver receiver = new MyReceiver();
         registerReceiver(receiver, filter);
-        TextView t1= (TextView) findViewById(R.id.textView);
+        TextView t1 = (TextView) findViewById(R.id.textView);
 
 
         Bundle extras = getIntent().getExtras();
-        if(extras!=null){
-            t1.setText("Phone Number is: "+extras.getString("phonenumber")+" and "+"New Password is: "+extras.getString("newpass"));
+        if (extras != null) {
+            t1.setText("Phone Number is: " + extras.getString("phonenumber") + " and " + "New Password is: " + extras.getString("newpass"));
         }
 
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
