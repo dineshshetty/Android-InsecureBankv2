@@ -30,6 +30,8 @@ This is a major update to one of my previous projects - "InsecureBank". This vul
 * Weak change password implementation
 
 Below are some of the other vulnerabilities that I am working on currently - and will be added as soon as I make sure that it does not break any of the other existing features:
+* Weak Pseudo Random Implementation
+* Path Traversal
 * Local SQL Injection
 * Intent based Denial-Of-Service - SMS
 * LockScreen Bypass
