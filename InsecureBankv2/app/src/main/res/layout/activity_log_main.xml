@@ -2,6 +2,33 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
+    <TableRow android:layout_width="match_parent"
+        android:gravity="center" android:layout_marginTop="20dp">
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_height="150dp"
+            android:layout_margin="20dp"
+            android:layout_gravity="center"
+            android:src="@drawable/logo"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-10dp"
+        android:gravity="center">
+        <TextView
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textAlignment="center"
+            android:textColor="@color/material_blue_grey_800"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:text="InsecureBankv2"/>
+    </TableRow>
+
     <TableRow android:layout_marginTop="20dip" >
         <EditText
             android:layout_width="match_parent"
@@ -14,7 +41,8 @@
             android:textColorHint="#cccccc"
             android:background="@android:drawable/editbox_background"
             android:drawableLeft="@android:drawable/ic_menu_crop"
-            android:layout_weight="1" >
+            android:layout_weight="1"
+            android:singleLine="true">
         </EditText>
     </TableRow>
 
@@ -31,7 +59,8 @@
             android:background="@android:drawable/editbox_background"
             android:drawableLeft="@android:drawable/ic_lock_lock"
             android:layout_weight="1"
-            android:password="true">
+            android:password="true"
+            android:singleLine="true">
         </EditText>
     </TableRow>
 
@@ -48,18 +77,18 @@
             android:textStyle="bold" />
     </TableRow>
 
-    <TableRow  android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="10dp" android:gravity="center" android:paddingLeft="5dp" android:paddingRight="5dp">
-        <Button
-            android:id="@+id/login_button"
-            android:layout_weight="1"
-            android:text="Login"
-            android:textColor="@color/wallet_bright_foreground_holo_dark"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:background="@drawable/roundbutton"/>
-        </TableRow>
+    <!--<TableRow  android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:paddingTop="10dp" android:gravity="center" android:paddingLeft="5dp" android:paddingRight="5dp">-->
+        <!--<Button-->
+            <!--android:id="@+id/login_button"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="Login"-->
+            <!--android:textColor="@color/wallet_bright_foreground_holo_dark"-->
+            <!--android:textSize="30sp"-->
+            <!--android:textStyle="bold"-->
+            <!--android:background="@drawable/roundbutton"/>-->
+    <!--</TableRow>-->
     <TableRow  android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="10dp" android:gravity="center"
@@ -71,17 +100,33 @@
             android:textColor="@color/wallet_bright_foreground_holo_dark"
             android:textSize="25sp"
             android:textStyle="bold"
-            android:background="@drawable/roundbutton"/>
+            android:background="@drawable/roundbutton"
+            android:visibility="invisible"/>
     </TableRow>
 
-    <TableRow android:layout_width="match_parent"
-        android:gravity="center" android:paddingTop="0px">
-        <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="wrap_content"
-            android:layout_gravity="center"
-            android:layout_height="match_parent"
-            android:src="@drawable/si"/>
-    </TableRow>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Sign In"
+            android:id="@+id/login_button"
+            android:background="@drawable/button_fb_gb"
+            android:layout_gravity="bottom"
+            android:textAlignment="gravity"
+            android:textColor="#F5F5F5"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="5sp"
+            />
+    </RelativeLayout>
+
+
 
 </TableLayout>

@@ -38,6 +38,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.marcohc.toasteroid.Toasteroid;
+
 /*
 The page that accepts new password and passes it on to the change password 
 module. This new password can then be used by the user to log in to the account.
@@ -82,7 +84,8 @@ public class DoLogin extends Activity {
         {
             Intent setupServerdetails =new Intent(this,FilePrefActivity.class);
             startActivity(setupServerdetails);
-            Toast.makeText(this, "Server path/port not set!",Toast.LENGTH_LONG).show();
+            Toasteroid.show(this, "Server path/port not set!!", Toasteroid.STYLES.WARNING, Toasteroid.LENGTH_SHORT);
+
 
         }
 	}

@@ -22,7 +22,8 @@
             android:layout_marginLeft="00dip"
             android:layout_weight="1"
             android:textStyle="bold"
-            android:layout_marginRight="5dip"></EditText>
+            android:layout_marginRight="5dip"
+            android:singleLine="true"></EditText>
     </TableRow>
 
     <TableRow android:layout_marginTop="30dip" android:layout_marginRight="5dip">
@@ -45,7 +46,8 @@
             android:background="@android:drawable/editbox_background"
             android:layout_marginLeft="00dip"
             android:layout_marginRight="5dip"
-            android:textStyle="bold"></EditText>
+            android:textStyle="bold"
+            android:singleLine="true"></EditText>
     </TableRow>
 
     <TableRow   android:paddingTop="50px" android:gravity="center"

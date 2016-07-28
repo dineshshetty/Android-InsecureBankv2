@@ -43,6 +43,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.marcohc.toasteroid.Toasteroid;
+
 /*
 The page that allows the user to transfer an amount between two accounts
 @author Dinesh Shetty
@@ -189,10 +191,9 @@ public class DoTransfer extends Activity {
 					AsyncHttpTransferPost("result");
 					if (result != null) {
 						if (result.indexOf("Success") != -1) {
-                            Toast.makeText(getApplicationContext(), "Transfer Successful", Toast.LENGTH_LONG).show();
+                            Toasteroid.show(DoTransfer.this, "Transfer Successful!!", Toasteroid.STYLES.SUCCESS, Toasteroid.LENGTH_SHORT);
 
-
-							try {
+                            try {
 								jsonObject = new JSONObject(result);
 								acc1 = jsonObject.getString("from");
 								acc2 = jsonObject.getString("to");
@@ -213,8 +214,10 @@ public class DoTransfer extends Activity {
 								e.printStackTrace();
 							}
 						} else {
-                            Toast.makeText(getApplicationContext(), "Transfer Failed", Toast.LENGTH_LONG).show();
-							System.out.println("Message:" + "Failure" + " From:" + from.getText().toString() + " To:" + to.getText().toString() + " Amount:" + amount.getText().toString());
+                            Toasteroid.show(DoTransfer.this, "Transfer Failed!!", Toasteroid.STYLES.ERROR, Toasteroid.LENGTH_SHORT);
+
+
+                            System.out.println("Message:" + "Failure" + " From:" + from.getText().toString() + " To:" + to.getText().toString() + " Amount:" + amount.getText().toString());
 							final String status = new String("\nMessage:" + "Failure" + " From:" + from.getText().toString() + " To:" + to.getText().toString() + " Amount:" + amount.getText().toString() + "\n");
 							//   Captures the failed transaction status for Transaction history tracking
 							String MYFILE = Environment.getExternalStorageDirectory() + "/Statements_" + usernameBase64ByteString + ".html";
@@ -389,16 +392,26 @@ public class DoTransfer extends Activity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            callPreferences();
-            return true;
-        } else if (id == R.id.action_exit) {
-            Intent i = new Intent(getBaseContext(), LoginActivity.class);
-            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(i);
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+
+		switch (item.getItemId()) {
+			case android.R.id.home:
+				//Write your logic here
+				this.finish();
+				return true;
+			case R.id.action_settings:
+				callPreferences();
+				return true;
+
+			case R.id.action_exit:
+				Intent i = new Intent(getBaseContext(), LoginActivity.class);
+				i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				startActivity(i);
+				return true;
+
+			default:
+				return super.onOptionsItemSelected(item);
+		}
+
 	}
 
 	public void callPreferences() {

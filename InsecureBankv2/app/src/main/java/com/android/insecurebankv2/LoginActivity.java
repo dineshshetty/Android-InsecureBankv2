@@ -22,6 +22,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.android.insecurebankv2.DoLogin;
+import com.marcohc.toasteroid.Toasteroid;
 
 /*
 The page that accepts username and the password from the user. The credentials 
@@ -71,20 +72,38 @@ public class LoginActivity extends Activity {
                 createUser();
             }
         });
-		fillData_button = (Button) findViewById(R.id.fill_data);
-		fillData_button.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-                try {
-                    fillData();
-                } catch (InvalidKeyException | UnsupportedEncodingException | NoSuchAlgorithmException | NoSuchPaddingException | InvalidAlgorithmParameterException | IllegalBlockSizeException | BadPaddingException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-            }
-        });
+        try {
+            fillData();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (InvalidKeyException e) {
+            e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (NoSuchPaddingException e) {
+            e.printStackTrace();
+        } catch (InvalidAlgorithmParameterException e) {
+            e.printStackTrace();
+        } catch (IllegalBlockSizeException e) {
+            e.printStackTrace();
+        } catch (BadPaddingException e) {
+            e.printStackTrace();
+        }
+//		fillData_button = (Button) findViewById(R.id.fill_data);
+//		fillData_button.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                // TODO Auto-generated method stub
+//                try {
+//                    fillData();
+//                } catch (InvalidKeyException | UnsupportedEncodingException | NoSuchAlgorithmException | NoSuchPaddingException | InvalidAlgorithmParameterException | IllegalBlockSizeException | BadPaddingException e) {
+//                    // TODO Auto-generated catch block
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
 
 	}
 
@@ -95,7 +114,8 @@ public class LoginActivity extends Activity {
     ToDo: Add functionality here.
     */
     protected void createUser() {
-        Toast.makeText(this, "Create User functionality is still Work-In-Progress!!", Toast.LENGTH_LONG).show();
+        Toasteroid.show(this, "Create User functionality is still Work-In-Progress!!", Toasteroid.STYLES.WARNING, Toasteroid.LENGTH_LONG);
+
 
     }
 
@@ -129,11 +149,11 @@ public class LoginActivity extends Activity {
         }
         else if (username==null || password==null)
         {
-            Toast.makeText(this, "No stored credentials found!!", Toast.LENGTH_LONG).show();
+          //  Toast.makeText(this, "No stored credentials found!!", Toast.LENGTH_LONG).show();
         }
         else
         {
-            Toast.makeText(this, "No stored credentials found!!", Toast.LENGTH_LONG).show();
+          //  Toast.makeText(this, "No stored credentials found!!", Toast.LENGTH_LONG).show();
         }
 
 	}
