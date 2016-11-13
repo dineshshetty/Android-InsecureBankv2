@@ -32,7 +32,16 @@ This is a major update to one of my previous projects - "InsecureBank". This vul
 * Developer Backdoors
 * Weak change password implementation
 
+## Default Credentials:
+
+|No.|Username|Password|  
+|---|---|---|
+|1|dinesh|Dinesh@123$|
+|2|jack|Jack@123$| 
+
+
 Below are some of the other vulnerabilities that I am working on currently - and will be added as soon as I make sure that it does not break any of the other existing features:
+
 * Weak Pseudo Random Implementation
 * Path Traversal
 * Local SQL Injection
@@ -40,3 +49,5 @@ Below are some of the other vulnerabilities that I am working on currently - and
 * LockScreen Bypass
 * Location Spoofing
 * Dead Code
+
+==========
