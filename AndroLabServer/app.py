@@ -1,7 +1,9 @@
 import getopt
+import web
+from web.wsgiserver import CherryPyWSGIServer
 import sys
 from flask import Flask, request, request_started
-from cherrypy import wsgiserver
+#from cherrypy import wsgiserver
 from functools import wraps
 from models import User, Account
 from database import db_session
@@ -143,12 +145,13 @@ if __name__ == '__main__':
         elif op == "--port":
             port = int(arg1)
 
-    dispatch = wsgiserver.WSGIPathInfoDispatcher({'/': app})
-    server = wsgiserver.CherryPyWSGIServer(('0.0.0.0', port), dispatch, timeout=200)
-
+    urls = ("/.*", "app")
+    apps = web.application(urls, globals())
+    server = CherryPyWSGIServer(("0.0.0.0", port),app,server_name='localhost')
     print "The server is hosted on port:",(port)
     
     try:
         server.start()
+	#apps.run(port)
     except KeyboardInterrupt:
         server.stop()

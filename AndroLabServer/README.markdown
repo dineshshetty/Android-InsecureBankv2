@@ -13,7 +13,7 @@ Install the below libraries using: easy_install <libraryname>
 * flask-sqlalchemy
 * simplejson
 * cherrypy
-
+* web.py
 
 Running the python server
 -----
