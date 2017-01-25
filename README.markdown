@@ -40,3 +40,9 @@ Below are some of the other vulnerabilities that I am working on currently - and
 * LockScreen Bypass
 * Location Spoofing
 * Dead Code
+
+
+If you are too impatient to use the application or read the usage guide then follow these steps:
+1) Download and install latest apk file
+2) Make sure that the AndroLab server is running
+3) Use the credentials dinesh/Dinesh@123$ or jack/Jack@123$ and start using the application
