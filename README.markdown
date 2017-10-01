@@ -48,4 +48,7 @@ If you are too impatient to use the application or read the usage guide then fol
 
 2) Make sure that the AndroLab server is running
 
-3) Use the credentials dinesh/Dinesh@123$ or jack/Jack@123$ and start using the application
+3) Make sure Is machine-machine access allowed on your network. Firewall disabled. Open netcat on your machine and then adb into your emulator. Try to connect to the address from adb and see if you can reach the machine. If you can not - fix the network issue before trying. I can not help you fix your network issues sadly so please there is no point creating git issues for it. 
+
+4) Use the credentials dinesh/Dinesh@123$ or jack/Jack@123$ and start using the application
+
