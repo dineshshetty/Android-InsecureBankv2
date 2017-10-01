@@ -1,0 +1,4 @@
+flask
+sqlalchemy
+simplejson
+web.py
