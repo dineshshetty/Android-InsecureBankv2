@@ -44,6 +44,8 @@ public class FilePrefActivity extends Activity {
 		edit_serverport = (EditText) findViewById(R.id.edittext_serverport);
 		preferences = PreferenceManager.getDefaultSharedPreferences(this);
 		editor = preferences.edit();
+		edit_serverip.setText(preferences.getString("serverip", "10.0.2.2"));
+		edit_serverport.setText(preferences.getString("serverport", "8888"));
 		submitPref_buttonz.setOnClickListener(new View.OnClickListener() {@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
