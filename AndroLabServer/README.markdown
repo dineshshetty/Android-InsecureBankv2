@@ -15,6 +15,9 @@ Install the below libraries using: easy_install <libraryname>
 * cherrypy
 * web.py
 
+Alternatively just use:
+pip install -r requirements.txt
+
 Running the python server
 -----
 Change the current directory to the AndroLabServer folder
