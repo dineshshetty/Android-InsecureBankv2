@@ -98,7 +98,7 @@ public class PostLogin extends Activity {
     private boolean doesSUexist() {
         Process process = null;
         try {
-            process = Runtime.getRuntime().exec(new String[] { "/system/xbin/which", "su" });
+            process = Runtime.getRuntime().exec(new String[] { "/system/bin/which", "su" });
             BufferedReader in = new BufferedReader(new InputStreamReader(process.getInputStream()));
             if (in.readLine() != null) return true;
             return false;
