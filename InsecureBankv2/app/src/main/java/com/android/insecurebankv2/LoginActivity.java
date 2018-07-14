@@ -116,7 +116,6 @@ public class LoginActivity extends Activity {
     protected void createUser() {
         Toasteroid.show(this, "Create User functionality is still Work-In-Progress!!", Toasteroid.STYLES.WARNING, Toasteroid.LENGTH_LONG);
 
-
     }
 
     /*

@@ -13,6 +13,7 @@ This is a major update to one of my previous projects - "InsecureBank". This vul
 * Local Encryption issues
 * Vulnerable Activity Components
 * Root Detection and Bypass
+* Emulator Detection and Bypass
 * Insecure Content Provider access
 * Insecure Webview implementation
 * Weak Cryptography implementation

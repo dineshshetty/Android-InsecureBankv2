@@ -2,6 +2,7 @@ package com.android.insecurebankv2;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,6 +18,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import com.marcohc.toasteroid.Toasteroid;
+
 
 /*
 The page that allows gives the user below functionalities
@@ -44,10 +47,10 @@ public class PostLogin extends Activity {
 		uname = intent.getStringExtra("uname");
 
         root_status =(TextView) findViewById(R.id.rootStatus);
-        //   Display root status
+        //  Display root status
         showRootStatus();
-
-
+        //	Display emulator status
+        checkEmulatorStatus();
 
 		transfer_button = (Button) findViewById(R.id.trf_button);
 		transfer_button.setOnClickListener(new View.OnClickListener() {
@@ -82,7 +85,36 @@ public class PostLogin extends Activity {
 		});
 	}
 
-    void showRootStatus() {
+	private void checkEmulatorStatus() {
+		Boolean isEmulator = checkIfDeviceIsEmulator();
+		if(isEmulator==true)
+		{
+			Toasteroid.show(this, "Application running on Emulator", Toasteroid.STYLES.ERROR, Toasteroid.LENGTH_LONG);
+		}
+		else
+		{
+			Toasteroid.show(this, "Application running on Real device", Toasteroid.STYLES.SUCCESS, Toasteroid.LENGTH_LONG);
+		}
+	}
+
+	private Boolean checkIfDeviceIsEmulator() {
+
+		if(Build.FINGERPRINT.startsWith("generic")
+				|| Build.FINGERPRINT.startsWith("unknown")
+				|| Build.MODEL.contains("google_sdk")
+				|| Build.MODEL.contains("Emulator")
+				|| Build.MODEL.contains("Android SDK built for x86")
+				|| Build.MANUFACTURER.contains("Genymotion")
+				|| (Build.BRAND.startsWith("generic") && Build.DEVICE.startsWith("generic"))
+				|| "google_sdk".equals(Build.PRODUCT))
+		{
+			return true;
+		}
+		return false;
+	}
+
+
+	void showRootStatus() {
         boolean isrooted = doesSuperuserApkExist("/system/app/Superuser.apk")||
                 doesSUexist();
         if(isrooted==true)
