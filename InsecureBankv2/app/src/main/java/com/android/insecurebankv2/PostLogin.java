@@ -98,7 +98,6 @@ public class PostLogin extends Activity {
 	}
 
 	private Boolean checkIfDeviceIsEmulator() {
-
 		if(Build.FINGERPRINT.startsWith("generic")
 				|| Build.FINGERPRINT.startsWith("unknown")
 				|| Build.MODEL.contains("google_sdk")
