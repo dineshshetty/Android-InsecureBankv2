@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    buildToolsVersion '27.0.3'
 
     defaultConfig {
         applicationId "com.android.insecurebankv2"
@@ -21,10 +21,10 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     // compile 'com.android.support:appcompat-v7:22.2.0'
-    compile 'com.google.android.gms:play-services:7.5.0'
-    compile 'com.github.marcohc:Toasteroid:2.1.4'
+    implementation 'com.google.android.gms:play-services:7.5.0'
+    implementation 'com.github.marcohc:Toasteroid:2.1.4'
 }
 
 repositories {
