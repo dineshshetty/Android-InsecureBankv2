@@ -13,7 +13,7 @@
             android:layout_marginLeft="00dip"></TextView>
         <EditText android:id="@+id/edittext_serverip"
             android:padding="10dp"
-            android:text="10.0.2.2"
+            android:hint="new IP - eg: 10.0.2.2"
             android:layout_width="wrap_content"
             android:textSize="20sp"
             android:textColor="#000000"
