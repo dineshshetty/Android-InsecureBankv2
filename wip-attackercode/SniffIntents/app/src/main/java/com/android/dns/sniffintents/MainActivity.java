@@ -2,7 +2,7 @@ package com.android.dns.sniffintents;
 
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
     Button bypassLogin;
 
     @Override
