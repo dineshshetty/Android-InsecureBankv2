@@ -1,7 +1,7 @@
 AndroLab Back-end Server Readme
 ==========
 
-This project is the python backend server for the Android InsecureBankv2 application which can be found at https://github.com/dineshshetty/Android-InsecureBankv2
+This project is the python2 backend server for the Android InsecureBankv2 application which can be found at https://github.com/dineshshetty/Android-InsecureBankv2
 
 
 Python required libraries
@@ -20,7 +20,7 @@ pip install -r requirements.txt
 
 Running the python server
 -----
-Change the current directory to the AndroLabServer folder
+Make sure you have python2 installed. Change the current directory to the AndroLabServer folder
 
 	cd AndroLabServer
 

@@ -5,7 +5,7 @@ InsecureBankv2 Readme
 
 [![Black Hat Arsenal](https://www.toolswatch.org/badges/arsenal/2016.svg)](https://www.blackhat.com/us-16/arsenal.html/)
 
-This is a major update to one of my previous projects - "InsecureBank". This vulnerable Android application is named "InsecureBankv2" and is made for security enthusiasts and developers to learn the Android insecurities by testing this vulnerable application. Its back-end server component is written in python. It is compatible with Python@2.7. The client component i.e. the Android InsecureBank.apk can be downloaded along with the source. The list of vulnerabilities that are currently included in this release are:
+This is a major update to one of my previous projects - "InsecureBank". This vulnerable Android application is named "InsecureBankv2" and is made for security enthusiasts and developers to learn the Android insecurities by testing this vulnerable application. Its back-end server component is written in python. It is compatible with Python2. The client component i.e. the Android InsecureBank.apk can be downloaded along with the source. The list of vulnerabilities that are currently included in this release are:
 
 * Flawed Broadcast Receivers
 * Intent Sniffing and Injection
