@@ -1,9 +1,10 @@
 import getopt
 import web
-from web.wsgiserver import CherryPyWSGIServer
 import sys
-from flask import Flask, request, request_started
+#from web.wsgiserver import CherryPyWSGIServer
 #from cherrypy import wsgiserver
+from cheroot import wsgi # This replaces the 2 above
+from flask import Flask, request, request_started
 from functools import wraps
 from models import User, Account
 from database import db_session
@@ -147,7 +148,7 @@ if __name__ == '__main__':
 
     urls = ("/.*", "app")
     apps = web.application(urls, globals())
-    server = CherryPyWSGIServer(("0.0.0.0", port),app,server_name='localhost')
+    server = wsgi.Server(("0.0.0.0", port),app,server_name='localhost')
     print "The server is hosted on port:",(port)
     
     try:
