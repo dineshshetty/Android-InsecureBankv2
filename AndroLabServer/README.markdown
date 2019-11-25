@@ -3,6 +3,14 @@ AndroLab Back-end Server Readme
 
 This project is the python2 backend server for the Android InsecureBankv2 application which can be found at https://github.com/dineshshetty/Android-InsecureBankv2
 
+Docker image
+-----
+
+docker pull khadkeaakash/insecurebankv2-androlabserver:beta
+
+Usage:
+-----
+docker run -p 8888:8888 <image-id>
 
 Python required libraries
 -----
