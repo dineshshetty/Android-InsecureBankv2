@@ -16,14 +16,14 @@ makejson = json.dumps
 DEFAULT_PORT_NO = 8888
 
 def usageguide():
-    print "InsecureBankv2 Backend-Server"
-    print "Options: "
-    print "  --port p    serve on port p (default 8888)"
-    print "  --help      print this message"
+    print ("InsecureBankv2 Backend-Server")
+    print ("Options: ")
+    print ("  --port p    serve on port p (default 8888)")
+    print ("  --help      print this message")
 
 @app.errorhandler(500)
 def internal_servererror(error):
-    print " [!]", error
+    print (" [!]",error)
     return "Internal Server Error", 500
 
 '''
@@ -35,16 +35,16 @@ def login():
     user = request.form['username']
     #checks for presence of user in the database #requires models.py
     u = User.query.filter(User.username == request.form["username"]).first()
-    print "u=",u
+    print ("u=",u)
     if u and u.password == request.form["password"]:
-	Responsemsg="Correct Credentials"
+        Responsemsg="Correct Credentials"
     elif u and u.password != request.form["password"]:
-	Responsemsg="Wrong Password"
+        Responsemsg="Wrong Password"
     elif not u:
         Responsemsg="User Does not Exist"
     else: Responsemsg="Some Error"
     data = {"message" : Responsemsg, "user": user}
-    print makejson(data)
+    print (makejson(data))
     return makejson(data)
 
 '''
@@ -65,12 +65,12 @@ def getaccounts():
         a=Account.query.filter(Account.user == user)
         for i in a:
           if (i.type=='from'):
-	    from_acc=i.account_number;
+              from_acc=i.account_number;
         for j in a:
           if (i.type=='to'):
-	    to_acc=i.account_number;
+              to_acc=i.account_number;
     data = {"message" : Responsemsg, "from": from_acc,"to": to_acc}
-    print makejson(data)
+    print (makejson(data))
     return makejson(data)
 
 '''
@@ -82,16 +82,16 @@ def changepassword():
     Responsemsg="fail"
     newpassword=request.form['newpassword']
     user=request.form['username']
-    print newpassword
+    print (newpassword)
     u = User.query.filter(User.username == user).first() #checks for presence of user in the database
     if not u:
         Responsemsg="Error"
     else:
-	Responsemsg="Change Password Successful"
-	u.password = newpassword
+        Responsemsg="Change Password Successful"
+        u.password = newpassword
         db_session.commit()
     data = {"message" : Responsemsg}
-    print makejson(data)
+    print (makejson(data))
     return makejson(data)
     
 '''
@@ -109,11 +109,11 @@ def dotransfer():
         Responsemsg="Wrong Credentials so trx fail"
 	#print Responsemsg
     else:
-	Responsemsg="Success"
+        Responsemsg="Success"
 	#print Responsemsg
-	from_acc = request.form["from_acc"]
-	to_acc = request.form["to_acc"]
-	amount = request.form["amount"]
+        from_acc = request.form["from_acc"]
+        to_acc = request.form["to_acc"]
+        amount = request.form["amount"]
         from_account = Account.query.filter(Account.account_number == from_acc).first()
         to_account = Account.query.filter(Account.account_number == to_acc).first()
 	#print "fromacc=",from_account
@@ -133,14 +133,14 @@ def devlogin():
     user=request.form['username']
     Responsemsg="Correct Credentials"
     data = {"message" : Responsemsg, "user": user}
-    print makejson(data)
+    print (makejson(data))
     return makejson(data)
 
 if __name__ == '__main__':
     port = DEFAULT_PORT_NO
     options, args = getopt.getopt(sys.argv[1:], "", ["help", "port="])
     for op, arg1 in options:
-	if op == "--help":
+        if op == "--help":
             usageguide()
             sys.exit(2)
         elif op == "--port":
@@ -149,7 +149,7 @@ if __name__ == '__main__':
     urls = ("/.*", "app")
     apps = web.application(urls, globals())
     server = wsgi.Server(("0.0.0.0", port),app,server_name='localhost')
-    print "The server is hosted on port:",(port)
+    print ("The server is hosted on port:",port)
     
     try:
         server.start()
