@@ -5,7 +5,7 @@ InsecureBankv2 Readme
 
 [![Black Hat Arsenal](https://www.toolswatch.org/badges/arsenal/2016.svg)](https://www.blackhat.com/us-16/arsenal.html/)
 
-This is a major update to one of my previous projects - "InsecureBank". This vulnerable Android application is named "InsecureBankv2" and is made for security enthusiasts and developers to learn the Android insecurities by testing this vulnerable application. Its back-end server component is written in python. It is compatible with Python2. The client component i.e. the Android InsecureBank.apk can be downloaded along with the source. The list of vulnerabilities that are currently included in this release are:
+This is a major update to one of my previous projects - "InsecureBank". This vulnerable Android application is named "InsecureBankv2" and is made for security enthusiasts and developers to learn the Android insecurities by testing this vulnerable application. Its back-end server component is written in python. It is compatible with Python3. The client component i.e. the Android InsecureBank.apk can be downloaded along with the source. The list of vulnerabilities that are currently included in this release are:
 
 * Flawed Broadcast Receivers
 * Intent Sniffing and Injection
@@ -52,4 +52,6 @@ If you are too impatient to use the application or read the usage guide then fol
 3) Make sure Is machine-machine access allowed on your network. Firewall disabled. Open netcat on your machine and then adb into your emulator. Try to connect to the address from adb and see if you can reach the machine. If you can not - fix the network issue before trying. I can not help you fix your network issues sadly so please there is no point creating git issues for it. 
 
 4) Use the credentials dinesh/Dinesh@123$ or jack/Jack@123$ and start using the application
+
+This application goes great with the course from Packt: The Complete Guide to Android Bug Bounty Penetration Tests
 
