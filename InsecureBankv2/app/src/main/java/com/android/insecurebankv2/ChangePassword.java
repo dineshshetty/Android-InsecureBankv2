@@ -80,9 +80,10 @@ public class ChangePassword extends Activity {
 		serverip = serverDetails.getString("serverip", null);
 		serverport = serverDetails.getString("serverport", null);
 
+		String defaultUsername = "uname";
 		changePassword_text = (EditText) findViewById(R.id.editText_newPassword);
 		Intent intent = getIntent();
-		uname = intent.getStringExtra("uname");
+		uname = intent.getStringExtra(defaultUsername);
 		System.out.println("newpassword=" + uname);
 		textView_Username = (TextView) findViewById(R.id.textView_Username);
 		textView_Username.setText(uname);
