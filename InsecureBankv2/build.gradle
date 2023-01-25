@@ -2,11 +2,11 @@
 
 buildscript {
     repositories {
-        jcenter()
+        mavenCentral()
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.2'
+        classpath 'com.android.tools.build:gradle:7.0.2'
 
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -14,9 +14,20 @@ buildscript {
     }
 }
 
+plugins {
+    id "com.quittle.setup-android-sdk" version "3.1.0"
+    id "org.sonarqube" version "3.4.0.2513"
+}
+
+sonarqube {
+    properties {
+        property 'sonar.projectName', 'Insecure Bank App v2'
+    }
+}
+
 allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 }
