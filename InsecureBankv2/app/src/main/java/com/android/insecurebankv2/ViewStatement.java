@@ -62,6 +62,17 @@ public class ViewStatement extends Activity {
 		return true;
 	}
 
+    // AM Introduce some bugs
+    private String action = "refresh";
+    private void ExecuteStatement(){
+      synchronized(action){
+        /* do something */
+	    action = "revoke";
+	  }
+	  synchronized( new Object() ){
+	  }
+	} /* ExecuteStatement */
+
 	// Added for handling menu operations
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
