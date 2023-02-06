@@ -32,7 +32,7 @@ steps:
 - task: Gradle@3
   inputs:
     gradleWrapperFile: 'InsecureBankv2/gradlew'
-    workingDirectory: 'InsecureBankv2/app'
+    workingDirectory: 'InsecureBankv2'
     tasks: 'build'
     publishJUnitResults: false
     javaHomeOption: 'JDKVersion'
