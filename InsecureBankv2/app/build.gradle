@@ -1,6 +1,6 @@
-plugins {
-    id "com.android.application"
-    id "org.sonarqube"
+plugins { 
+  id 'org.sonarqube'
+  id 'com.android.application'
 }
 
 android {
