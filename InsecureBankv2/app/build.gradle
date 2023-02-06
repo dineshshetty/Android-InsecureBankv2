@@ -1,4 +1,7 @@
-apply plugin: 'com.android.application'
+plugins {
+    id "com.quittle.setup-android-sdk" version "3.1.0"
+    id "org.sonarqube" version "3.4.0.2513"
+}
 
 android {
     compileSdkVersion 26
