@@ -29,7 +29,18 @@ steps:
     jdkArchitectureOption: 'x64'
     jdkSourceOption: 'PreInstalled'
 
-
+- task: Gradle@3
+  inputs:
+    gradleWrapperFile: 'InsecureBankv2/gradlew'
+    workingDirectory: 'InsecureBankv2'
+    tasks: 'build'
+    publishJUnitResults: true
+    testResultsFiles: '**/TEST-*.xml'
+    javaHomeOption: 'JDKVersion'
+    sonarQubeRunAnalysis: true
+    sqGradlePluginVersionChoice: 'specify'
+    sonarQubeGradlePluginVersion: '2.6.1'
+    spotBugsAnalysis: false
 
 - task: SonarQubePublish@5
   inputs:
