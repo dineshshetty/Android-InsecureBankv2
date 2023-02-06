@@ -31,7 +31,7 @@ steps:
 
 - task: Gradle@3
   inputs:
-    gradleWrapperFile: 'gradlew'
+    gradleWrapperFile: 'InsecureBankv2/gradle'
     tasks: 'build'
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
