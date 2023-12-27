@@ -113,6 +113,7 @@ proguard/
 
 # Log Files
 *.log
+InsecureBankv2/build-log.txt
 
 # Android Studio Navigation editor temp files
 .navigation/
@@ -123,3 +124,6 @@ captures/
 # Intellij
 *.iml
 .idea/workspace.xml
+
+# VSCode
+.vscode
